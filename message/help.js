@@ -1,5 +1,5 @@
 exports.menu = (pushname, sender, prefix, banChats, ucapanWaktu, timeWib, timeWit, timeWita) => {
-return`*╭─❒ 「 Bmux-V17 」 ────*
+return`*╭─❒ 「 Bmux-V17 」 ──*
 *│*
 *│*⬡ *${ucapanWaktu} kak*
 *│*⬡ *Nombre : ${pushname}*
@@ -181,7 +181,6 @@ return`*╭─❒ 「 Bmux-V17 」 ────*
 *│*
 *├  ▢  : Jacksito*
 *├  ▢  : LegionDDA*
-*├  ▢  :*
 *└─────────────* 
 
 ❏ *𓅓𝐁𝐦𝐮𝐱-17* ❏`
