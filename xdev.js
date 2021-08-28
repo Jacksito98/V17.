@@ -1774,7 +1774,7 @@ xdev.updatePresence(from, Presence.composing)
                 } else if ((isMedia && dev.message.videoMessage.fileLength < 10000000 || isQuotedVideo && dev.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
                     let encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(dev).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : dev
                     let media = await xdev.downloadAndSaveMediaMessage(encmedia, `./stik/${sender}`)
-					
+					reply(mess.wait) //🧑‍💻FG98 :v
                         await ffmpeg(`${media}`)
 							.inputFormat(media.split('.')[4])
 							.on('start', function (cmd) {
@@ -2273,7 +2273,8 @@ members_id = []
 mentions(`*From :@${nom.split("@s.whatsapp.net")[0]}*\n\n*Info :  ${q}*\n\n*Total Member :* ${groupMembers.length} \n\n┏━ *「 ${fake1} 」* `+teks+`┗━ *「 ${fake1} 」* `, members_id, false)
 break
 
-  //------
+  //=======================================================
+  //---𝗔𝗡̃𝗔𝗗𝗜𝗗𝗢 𝗣𝗢𝗥 𝗙𝗚98----
    case 'actualizar':
 case 'update':
 if (!isOwner) return reply(`❎ Sólo dueño`)
@@ -2284,6 +2285,15 @@ if (stdout) reply(`✅ *El bot se ah actualizado de forma satisfactoria*\n Infor
 })
 break
 
+case 'attp':
+	            //  if (!isVerify) return reply(userB(prefix))
+					if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
+					  reply(mess.wait)
+					var teks = encodeURIComponent(args.join(' '))
+					const attp = await getBuffer(`https://api.xteam.xyz/attp?file&text=${teks}`)
+					xdev.sendMessage(from, attp, sticker, {quoted: dev})
+					  break
+//====================================================================
  
 default:
 if (button == 'CREATOR') {
