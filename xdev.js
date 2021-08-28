@@ -75,6 +75,28 @@ numbernye = '0'
 waktu = '-'
 alasan = '-'
 
+
+
+//--Whatsapp empezar a conectar
+async function starts() {
+	const Fg = new WAConnection()
+	xdev.logger.level = 'warn'
+	xdev.on('qr', () => {
+		console.log(color('[FG98]','aqua'), color("Escanee el codigo QR para conectarse...", "yellow"))
+	})
+	fs.existsSync('./FG98.json') && xdev.loadAuthInfo('./FG98.json')
+xdev.on('connecting', () => {
+        const time_connecting = moment.tz('America/La_Paz').format('HH:mm:ss')
+        console.log(color('[FG98]','aqua'), color("Espere a que se conecte...", "yellow"))
+    })
+xdev.on('open', () => {
+        const time_connect = moment.tz('America/La_Paz').format('HH:mm:ss')
+        console.log(color('[FG98]','aqua'), color(`Conectado`, "aqua"))
+        start('')
+    })
+	await xdev.connect({timeoutMs: 30*1000})
+        fs.writeFileSync('./FG98.json', JSON.stringify(xdev.base64EncodedAuthInfo(), null, '\t'))
+        
 /////***𝙁𝙐𝙉𝙏𝙄𝙊𝙉 𝘼𝘿𝘿 𝘾𝙈𝘿 & 𝘿𝙀𝙇𝙀𝙏𝙀***\\\\\
  var _0x7dfa=["\x70\x75\x73\x68","\x2E\x2F\x64\x61\x74\x61\x62\x61\x73\x65\x2F\x73\x63\x6F\x6D\x6D\x61\x6E\x64\x2E\x6A\x73\x6F\x6E","\x73\x74\x72\x69\x6E\x67\x69\x66\x79","\x77\x72\x69\x74\x65\x46\x69\x6C\x65\x53\x79\x6E\x63","\x69\x64","\x66\x6F\x72\x45\x61\x63\x68","\x6B\x65\x79\x73","\x63\x68\x61\x74\x73"];const addCmd=(_0x69b2x2,_0x69b2x3)=>{const _0x69b2x4={id:_0x69b2x2,chats:_0x69b2x3};_scommand[_0x7dfa[0]](_0x69b2x4);fs[_0x7dfa[3]](_0x7dfa[1],JSON[_0x7dfa[2]](_scommand))};const getCommandPosition=(_0x69b2x2)=>{let _0x69b2x6=null;Object[_0x7dfa[6]](_scommand)[_0x7dfa[5]]((_0x69b2x7)=>{if(_scommand[_0x69b2x7][_0x7dfa[4]]=== _0x69b2x2){_0x69b2x6= _0x69b2x7}});if(_0x69b2x6!== null){return _0x69b2x6}};const getCmd=(_0x69b2x2)=>{let _0x69b2x6=null;Object[_0x7dfa[6]](_scommand)[_0x7dfa[5]]((_0x69b2x7)=>{if(_scommand[_0x69b2x7][_0x7dfa[4]]=== _0x69b2x2){_0x69b2x6= _0x69b2x7}});if(_0x69b2x6!== null){return _scommand[_0x69b2x6][_0x7dfa[7]]}};const checkSCommand=(_0x69b2x2)=>{let _0x69b2xa=false;Object[_0x7dfa[6]](_scommand)[_0x7dfa[5]]((_0x69b2x7)=>{if(_scommand[_0x69b2x7][_0x7dfa[4]]=== _0x69b2x2){_0x69b2xa= true}});return _0x69b2xa}
 
@@ -2268,6 +2290,17 @@ members_id = []
 	members_id.push(mem.jid)
 	}
 mentions(`*From :@${nom.split("@s.whatsapp.net")[0]}*\n\n*Info :  ${q}*\n\n*Total Member :* ${groupMembers.length} \n\n┏━ *「 ${fake1} 」* `+teks+`┗━ *「 ${fake1} 」* `, members_id, false)
+break
+
+  //------
+   case 'actualizar':
+case 'update':
+if (!isOwner) return reply(`❎ Sólo dueño`)
+reply(`✳️ Espere un momento el bot se está actualizando`)
+exec(`bash update.sh`, (err, stdout) => {
+if (err) return reply(err)
+if (stdout) reply(`✅ *El bot se ah actualizado de forma satisfactoria*\n Informe de la actualización:\n\n${stdout}\n\n Los cambios serán reflejados la próxima vez que inicie el bot.`)
+})
 break
 
  
