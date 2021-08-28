@@ -332,15 +332,15 @@ module.exports = xdev = async (xdev, dev) => {
       }
       }
      
-     //-------𝗙𝗨𝗡𝗖𝗜𝗢́𝗡 𝗔𝗡𝗧𝗜 𝗟𝗜𝗡𝗞 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣------
+     //-------𝗙𝗨𝗡𝗖𝗜𝗢́𝗡 𝗔𝗡𝗧𝗜 𝗟𝗜𝗡𝗞 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 By FG98------
 
 const linkwa = 'https://chat.whatsapp.com/'
 		if (budy.includes(`${linkwa}`)){
 		if (!isGroup) return
 		if (!isAntiLink) return
     if (!isBotGroupAdmins) return reply('🤨 Por suerte no soy  admin, asi que no te expulsare')
-    linkgc = await xdev.groupInviteCode (from)
-    if (budy.includes(`${linkwa}${linkgc}`)) return reply('✳️ Menos mal que este enlace es de este grupo v:')
+    linkgp = await xdev.groupInviteCode (from)
+    if (budy.includes(`${linkwa}${linkgp}`)) return reply('✳️ Menos mal que este enlace es de este grupo v:')
 		if (isGroupAdmins) return reply(`✳️ Los *Admins* son libres 😎`)
 		xdev.updatePresence(from, Presence.composing)
 		var Kick = `${sender.split("@")[0]}@s.whatsapp.net`
@@ -354,18 +354,7 @@ const linkwa = 'https://chat.whatsapp.com/'
 		reply(`❎ No permitimos enlaces de otros grupos!\nLo siento *${pushname}* seras expulsado`)
 		}, 0)
 	}
-           /* /////***𝙁𝙐𝙉𝙏𝙄𝙊𝙉 𝘼𝙉𝙏𝙄𝙇𝙄𝙉𝙆 𝙂𝙍𝙐𝙋***\\\\\
-				if (budy.includes("https://chat.whatsapp.com/")) {
-				if (!isGroup) return
-				if (!isAntiLink) return
-				if (isGroupAdmins) return
-				var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-				reply(` *「 GROUP LINK DETECTOR 」*\nEnviaste el enlace del chat grupal, lo siento, te expulsaron del grupo.:(`)
-				setTimeout(() => {
-				xdev.groupRemove(from, [kic]).catch((e) => { reply(`BOT HARUS JADI ADMIN`) })
-				}, 0)
-			    }*/
-			
+           
 			/////***𝙁𝙐𝙉𝙏𝙄𝙊𝙉 𝘼𝙉𝙏𝙄 𝙑𝙄𝙍𝙐𝙎***\\\\\
     if (budy.length > 3500) {
     if (!isGroup) return
@@ -991,6 +980,7 @@ xdev.groupRemove(from, [entah])
 }
 break
 case 'linkgc':
+case 'link':
 case 'linkgrup':
 case 'linkgrop':
 case 'linkgroup':
