@@ -180,7 +180,7 @@ return`*╭─❒ 「 Bmux-V17 」 ──*
 ❒  *「 Thanks To : 」*  
 *│*
 *├  ▢  : Jacksito*
-*├  ▢  : LegionDDA*
+*├  ▢  : FG98F*
 *└─────────────* 
 
 ❏ *𓅓𝐁𝐦𝐮𝐱-17* ❏`
