@@ -331,7 +331,30 @@ module.exports = xdev = async (xdev, dev) => {
       xdev.sendMessage(from, commandsDB[i].balasan, text, {quoted: dev})
       }
       }
-            /////***𝙁𝙐𝙉𝙏𝙄𝙊𝙉 𝘼𝙉𝙏𝙄𝙇𝙄𝙉𝙆 𝙂𝙍𝙐𝙋***\\\\\
+     
+     //-------𝗙𝗨𝗡𝗖𝗜𝗢́𝗡 𝗔𝗡𝗧𝗜 𝗟𝗜𝗡𝗞 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣------
+
+const linkwa = 'https://chat.whatsapp.com/'
+		if (budy.includes(`${linkwa}`)){
+		if (!isGroup) return
+		if (!isAntiLink) return
+    if (!isBotGroupAdmins) return reply('🤨 Por suerte no soy  admin, asi que no te expulsare')
+    linkgc = await xdev.groupInviteCode (from)
+    if (budy.includes(`${linkwa}${linkgc}`)) return reply('✳️ Menos mal que este enlace es de este grupo v:')
+		if (isGroupAdmins) return reply(`✳️ Los *Admins* son libres 😎`)
+		xdev.updatePresence(from, Presence.composing)
+		var Kick = `${sender.split("@")[0]}@s.whatsapp.net`
+		setTimeout( () => {
+		reply('Adios')
+		}, 1100)
+		setTimeout( () => {
+		xdev.groupRemove(from, [Kick]).catch((e) => {console.log(`*ERROR:* ${e}`)}) 
+					}, 1000)
+		setTimeout( () => {
+		reply(`❎ No permitimos enlaces de otros grupos!\nLo siento *${pushname}* seras expulsado`)
+		}, 0)
+	}
+           /* /////***𝙁𝙐𝙉𝙏𝙄𝙊𝙉 𝘼𝙉𝙏𝙄𝙇𝙄𝙉𝙆 𝙂𝙍𝙐𝙋***\\\\\
 				if (budy.includes("https://chat.whatsapp.com/")) {
 				if (!isGroup) return
 				if (!isAntiLink) return
@@ -341,7 +364,8 @@ module.exports = xdev = async (xdev, dev) => {
 				setTimeout(() => {
 				xdev.groupRemove(from, [kic]).catch((e) => { reply(`BOT HARUS JADI ADMIN`) })
 				}, 0)
-			    }
+			    }*/
+			
 			/////***𝙁𝙐𝙉𝙏𝙄𝙊𝙉 𝘼𝙉𝙏𝙄 𝙑𝙄𝙍𝙐𝙎***\\\\\
     if (budy.length > 3500) {
     if (!isGroup) return
@@ -2290,8 +2314,8 @@ case 'attp':
 					if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
 					  reply(mess.wait)
 					var teks = encodeURIComponent(args.join(' '))
-					const attp = await getBuffer(`https://api.xteam.xyz/attp?file&text=${teks}`)
-					xdev.sendMessage(from, attp, sticker, {quoted: dev})
+					const attpfg = await getBuffer(`https://api.xteam.xyz/attp?file&text=${teks}`)
+					xdev.sendMessage(from, attpfg, sticker, {quoted: dev})
 					  break
 //====================================================================
  
